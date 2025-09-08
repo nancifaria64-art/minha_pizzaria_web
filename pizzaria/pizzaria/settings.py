@@ -25,7 +25,18 @@ SECRET_KEY = "django-insecure-=_!zr#nk^s31kox5etbz_ah8o=snh)k@oi6i(z$n4%t(z-^od0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    "[::1]"
+]
+
+CSRF_TRUSTED_ORIGINS =[
+    "http://localhost:8000",
+    "https://localhost:8000",
+    "http://127.0.0.1:8000",
+    "https://127.0.0.1:8000",
+]
 
 
 # Application definition
@@ -37,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "cardapio"
 ]
 
 MIDDLEWARE = [
