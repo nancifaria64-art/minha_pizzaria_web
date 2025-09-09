@@ -48,3 +48,22 @@ class Pizza(models.Model):
         for ingrediente_pizza in self.ingredientepizza_set.all():
             total += ingrediente_pizza.custo_ingrediente
         return total
+    
+    CLASS INGREDIENTEPizza(models.Model):
+    #Relaciona o ingrediente pizza com a pizza
+    Pizza=models.ForeignKey(pizza, on_delete=models.CASCADE)
+    #Relaciona o Ingrediente Pizza com o ingrediente
+    ingrediente=models.ForeignKey(ingredintte,on_delete=models.CASCADE)
+    #0.031
+    quaNTIDADE_NUMERICA=MODELS.DcimalField(max_digits=8,decimal_placeces=3)
+    #300 gramas,1 colher,1 fatia
+    quantidade _texto = models.CharField(max_lengeth=50, blank=true)
+    @propertydef custo_ingrediente(self)
+    return self .quantidade _numerica* self.Ingrediente.preco_unidade
+    @property
+    def quantidade_display(selfe):
+        qn=self.quantidade_numerica
+        um=self.ingrediente.unidade_medida
+        qt=self.quantidade_texto
+        If qt:
+        return f"{qn} {um} ({qt})"
